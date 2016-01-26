@@ -13,86 +13,61 @@
         <script src="./js/jquery-2.2.0.min.js"></script>
     </head>
     <body>
-        <%
-            HttpSession sesion = request.getSession();
-            String pin = request.getParameter("verifier");
-            RequestToken requestToken = null;
-            AccessToken accessToken = null;
-            Twitter OAuthTwitter = null;
-            String url = null;
-            if (pin == null || pin == "") {
-                ConfigurationBuilder configBuilder = new ConfigurationBuilder();
-                configBuilder.setDebugEnabled(true)
-                        .setOAuthConsumerKey("nyFJnGU5NfN7MLuGufXhAcPTf")
-                        .setOAuthConsumerSecret("QOofP3lOC7ytKutfoexCyh3zDVIFNHoMuuuKI98S78XmeGvqgW");
-                OAuthTwitter = new TwitterFactory(configBuilder.build()).getInstance();
-                sesion.setAttribute("twitter", OAuthTwitter);
+        <h1>Login</h1>
+        <div id="button"></div>
+        <p id="resultado"></p>
+    </body>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var timer = setInterval(checkWindow, 1000);
+
+            (function getButton() {
+                $.ajax({
+                    method: "GET",
+                    dataType: "json",
+                    url: 'http://127.0.0.1:39963/AmgTwitter/login?op=url'
+                }).done(function (data) {
+                    var button = "<a href='" + data.url + "' target='popup' ";
+                    button += "onClick=\"pop_up = window.open(this.href, this.target, 'width=350,height=420'); return false;\"> ";
+                    button += "<img src='./img/sign-in-with-twitter-gray.png'></img></a>";
+                    $("#button").html(button);
+                });
+            })();
+
+            function checkWindow() {
                 try {
-                    //System.out.println("==============================================");
-                    requestToken = OAuthTwitter.getOAuthRequestToken();
-                    sesion.setAttribute("requestToken", requestToken);
-                    //System.out.println("Request Tokens obtenidos con éxito.");
-                    //System.out.println("Request Token: " + requestToken.getToken());
-                    //System.out.println("Request Token secret: " + requestToken.getTokenSecret());
-                    url = requestToken.getAuthenticationURL();
-                    //System.out.println("URL:" + url);
-                } catch (TwitterException ex) {
-                }
-            }
-            if (pin != null && pin.length() > 0) {
-
-                OAuthTwitter = (Twitter) sesion.getAttribute("twitter");
-                requestToken = (RequestToken) sesion.getAttribute("requestToken");
-                sesion.removeAttribute("twitter");
-                sesion.removeAttribute("requestToken");
-                //System.out.println("----------------------------------------");
-                accessToken = OAuthTwitter.getOAuthAccessToken(requestToken, pin);
-                sesion.setAttribute("accesToken", accessToken);
-                //System.out.println("Access Tokens obtenidos con éxito.");
-                System.out.println("Access Token: " + accessToken.getToken());
-                //System.out.println("Access Token secret: " + accessToken.getTokenSecret());
-            }
-
-        %>
-
-        <a href="<%= url%>" target="popup" onClick="pop_up = window.open(this.href, this.target, 'width=350,height=420'); return false;">
-            <img src="./img/sign-in-with-twitter-gray.png"></img>
-        </a><br/>
-</html>
-
-<script type="text/javascript">
-    $(document).ready(function () {
-        var timer = setInterval(checkWindow, 1000);
-        function checkWindow() {
-            try {
-                var ur = pop_up.location.href;
-                if (ur.indexOf('oauth_verifier') !== -1) {
-                    var verifier = "";
-                    clearInterval(timer);
-                    pop_up.close();
-                    ur = ur.substring(ur.indexOf('?') + 1);
-                    var urPartes = ur.split('&');
-                    for (i = 0; i < urPartes.length; i++) {
-                        if (urPartes[i].indexOf('oauth_verifier') !== -1) {
-                            verifier = urPartes[i].split('=')[1];
+                    var ur = pop_up.location.href;
+                    if (ur.indexOf('oauth_verifier') !== -1) {
+                        var verifier = "";
+                        clearInterval(timer);
+                        pop_up.close();
+                        ur = ur.substring(ur.indexOf('?') + 1);
+                        var urPartes = ur.split('&');
+                        for (i = 0; i < urPartes.length; i++) {
+                            if (urPartes[i].indexOf('oauth_verifier') !== -1) {
+                                verifier = urPartes[i].split('=')[1];
+                            }
                         }
+                        getVerifierToken(verifier);
                     }
-                    getVerifierToken(verifier);
+                } catch (e) {
+                    console.log(e);
                 }
-            } catch (e) {
-                console.log(e);
             }
-        }
-        ;
-        function getVerifierToken(verifier) {
-            $.ajax({
-                method: "GET",
-                url: 'http://127.0.0.1:39963/AmgTwitter/?verifier=' + verifier
-            }).done(function (data) {
-                console.log("AccesToken obtenido")
-            });
-        }
-        ;
-    });
-</script>
+            ;
+
+            function getVerifierToken(verifier) {
+                $.ajax({
+                    method: "GET",
+                    dataType: "json",
+                    url: 'http://127.0.0.1:39963/AmgTwitter/login?verifier=' + verifier
+                }).done(function (data) {
+                    $("#resultado").html("Acces Token: "+ data.token + "<br/>");
+                     $("#resultado").append("Acces Secret: " +data.secret);
+                });
+            }
+            ;
+        });
+    </script>
+</html>
 
