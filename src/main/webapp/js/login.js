@@ -40,8 +40,8 @@ $(document).ready(function () {
             }).done(function (data) {
                 var button = "<a href='" + data.url + "' target='popup' ";
                 button += "onClick=\"pop_up = window.open(this.href, this.target, 'width=350,height=420'); return false;\"> ";
-                button += "<img src='./img/sign-in-with-twitter-gray.png'></img></a>";
-                $("#button").html(button);
+                button += "<img class='boton' src='./img/login/boton.png'></img></a>";
+                $("#accion").html(button);
             });
         })();
         // Comprueba cada segundo si el pop up ha devuelto los parametros y lo cierra
@@ -82,6 +82,8 @@ $(document).ready(function () {
         // Comprueba cada segundo el pop up
         var timer = setInterval(checkWindow, 1000);
     } else {
+        var direccion = "<p>Ya estas logueado: <a href='#'>Ir a mi home</a></p>"
+        $("#accion").html(direccion);
         // Muestra las cookies creadas
         $("#resultado").html("Acces Token Cookie: " + cookie1 + "<br/>");
         $("#resultado").append("Acces Secret Cookie: " + cookie2);
