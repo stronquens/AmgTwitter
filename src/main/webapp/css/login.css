@@ -28,6 +28,10 @@ html {
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
+
+    border-style: solid;
+    border-width: 10px;
+    border-color: rgba(0, 0, 0, 0.4);
 }
 
 h1 {
@@ -46,7 +50,7 @@ p {
     color: whitesmoke;
 }
 #accion {
-        margin-top: 40px;
+    margin-top: 40px;
     margin-left:50px;
 }
 #accion > p {

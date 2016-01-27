@@ -1,0 +1,64 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 27-ene-2016, 18:27:49
+    Author     : Armando
+*/
+body {
+    background-color: #f5f8fa;
+}
+.timeline {
+    background: #fff;
+    border-left: 1px solid #e1e8ed;
+    border-right: 1px solid #e1e8ed;
+    margin: 0 auto;
+    padding: 0px;
+    height: auto;
+    width: 589px;
+}
+.stream-items {
+    position: relative;
+    margin-left: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.tweet:hover {
+    background-color: #f5f8fa;
+}
+.tweet {
+    position: relative;
+    display: block;
+    min-height: 51px;
+    padding: 9px 12px;
+    padding-left: 72px !important;
+    border-bottom: 1px solid #e1e8ed;
+    cursor: pointer;
+    background-color: white;
+}
+.tweet .account-group {
+    color: #8899a6;
+}
+.tweet .avatar {
+    border: 0;
+    float: left;
+    margin-top: 3px;
+    margin-left: -58px;
+    width: 48px;
+    height: 48px;
+    border-radius: 5px;
+    -moz-force-broken-image-icon: 1;
+}
+.tweet .time, .tweet .time a{
+    font-size: 13px;
+    color: #8899a6;
+}
+.tweet .tweet-text {
+    font-size: 14px;
+    line-height: 18px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}

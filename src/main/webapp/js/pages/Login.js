@@ -1,35 +1,11 @@
-
 $(document).ready(function () {
+    /*
+     * Requiere el uso de Cookies.js -- important --
+     */
 
-    // Crear Cookie
-    var crearCookie = function (key, value) {
-        expires = new Date();
-        expires.setTime(expires.getTime() + 86400000);
-        cookie = key + "=" + value + ";expires=" + expires.toUTCString();
-        console.log("crearCookie: " + cookie);
-        return document.cookie = cookie;
-    }
-
-    // Leer Cookie
-    var leerCookie = function (key) {
-        keyValue = document.cookie.match("(^|;) ?" + key + "=([^;]*)(;|$)");
-        if (keyValue) {
-            console.log("getCookie: " + key + "=" + keyValue[2]);
-            return keyValue[2];
-        } else {
-            console.log("getCookie: " + key + "=" + "null");
-            return null;
-        }
-    }
-
-    // Eliminar Cookie
-    var eliminarCookie = function (key) {
-        console.log("eliminarCookie: " + key);
-        return document.cookie = key + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-    }
-    // Obtenemos las cookies y si existen las mostramos y sino las creamos
-    var cookie1 = leerCookie("amgTwitterToken");
-    var cookie2 = leerCookie("amgTwitterSecret");
+// Obtenemos las cookies y si existen las mostramos y sino las creamos
+    var cookie1 = Cookies().leerCookie("amgTwitterToken");
+    var cookie2 = Cookies().leerCookie("amgTwitterSecret");
     if (cookie1 == null && cookie2 == null) {
         // Crea el boton de iniciar sesion con la url correspondiente
         (function getButton() {
@@ -75,20 +51,18 @@ $(document).ready(function () {
                 $("#resultado").html("Acces Token: " + data.token + "<br/>");
                 $("#resultado").append("Acces Secret: " + data.secret);
 
-                crearCookie("amgTwitterToken", data.token);
-                crearCookie("amgTwitterSecret", data.secret);
+                Cookies().crearCookie("amgTwitterToken", data.token);
+                Cookies().crearCookie("amgTwitterSecret", data.secret);
             });
         }
         // Comprueba cada segundo el pop up
         var timer = setInterval(checkWindow, 1000);
     } else {
-        var direccion = "<p>Ya estas logueado: <a href='#'>Ir a mi home</a></p>"
-        $("#accion").html(direccion);
+        $("#accion").html("<p>Ya estas logueado: <a href='./html/home.html'>Ir a mi home</a></p>");
+        window.location = "./html/home.html";
         // Muestra las cookies creadas
         $("#resultado").html("Acces Token Cookie: " + cookie1 + "<br/>");
         $("#resultado").append("Acces Secret Cookie: " + cookie2);
     }
 
 });
-
-

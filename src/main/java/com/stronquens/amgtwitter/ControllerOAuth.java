@@ -25,7 +25,7 @@ import twitter4j.conf.ConfigurationBuilder;
  *
  * @author Armando
  */
-public class ControllerLogin extends HttpServlet {
+public class ControllerOAuth extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -97,7 +97,7 @@ public class ControllerLogin extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (TwitterException ex) {
-            Logger.getLogger(ControllerLogin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ControllerOAuth.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -115,7 +115,7 @@ public class ControllerLogin extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (TwitterException ex) {
-            Logger.getLogger(ControllerLogin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ControllerOAuth.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
