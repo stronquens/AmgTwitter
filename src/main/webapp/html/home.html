@@ -3,15 +3,29 @@
     <head>
         <title>Home</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">       
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">     
+        <link rel="icon" type="image/png" href="../img/favicon.png" />
         <link rel="stylesheet" type="text/css" href="../css/home.css">     
     </head>
     <body>
-        <h1>Home</h1>
-        <div class="timeline"></div>
+        <div class="info-user"></div>
+        <div class="timeline">
+            <ol class='stream-items'> </ol>
+
+        </div>
     </body>
 
     <script src="../js/vendor/jquery-2.2.0.min.js"></script>
     <script src="../js/util/Cookies.js"></script>
-    <script src="../js/pages/Home.js"></script>   
+    <script src="../js/util/ajax.js"></script>
+    
+    <script src="../js/app/view.js"></script>
+    <script src="../js/app/model.js"></script>
+    <script src="../js/app/controller.js"></script>
+    <script src="../js/app/events.js"></script>
+    <script>
+        //var Path = window.location.host+window.location.pathname;     
+        pageEvents();
+        //Path.listen();
+    </script>   
 </html>

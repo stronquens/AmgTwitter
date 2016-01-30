@@ -1,7 +1,14 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 
+var Controller = function () {
+    this.token = null;
+    this.secret = null;
+};
+Controller.prototype.init = function () {
+    if (this.token == null && this.secret == null) {
+        this.token = Cookies().leerCookie("amgTwitterToken");
+        this.secret = Cookies().leerCookie("amgTwitterSecret");
+    }
+    oView.printTweets(oModel.getAjaxTimeline(this.token, this.secret));
+};
+var oController = new Controller();

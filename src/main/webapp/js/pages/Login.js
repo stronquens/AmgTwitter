@@ -53,6 +53,7 @@ $(document).ready(function () {
 
                 Cookies().crearCookie("amgTwitterToken", data.token);
                 Cookies().crearCookie("amgTwitterSecret", data.secret);
+                window.location = "./html/home.html";
             });
         }
         // Comprueba cada segundo el pop up
