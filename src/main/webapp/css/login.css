@@ -8,23 +8,35 @@ and open the template in the editor.
     Author     : Armando
 */
 
-html { 
-    background: url(../img/login/stock-photo-69639473.jpg) no-repeat center center fixed; 
+
+.background-image {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    display: block;
+    background-image: url('../img/login/fondo1.jpeg');
+
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.myBackground.jpg', sizingMethod='scale');
-    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='myBackground.jpg', sizingMethod='scale')";
+    background-size: cover;   
+    
+   /* -webkit-filter: blur(1px);
+    -moz-filter: blur(1px);
+    -o-filter: blur(1px);
+    -ms-filter: blur(1px);
+    filter: blur(1px);*/
 }
-
 .marco {
     height: 400px;
-    width: 400px;;
-    margin-right: 8vw;
+    width: 400px;
+    margin: 0 auto;
     margin-top: 8vw;
-    float: right;
-    background-color: rgba(255, 255, 255, 0.4);
+
+    background-color: rgba(255, 255, 255, 0.8);
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
