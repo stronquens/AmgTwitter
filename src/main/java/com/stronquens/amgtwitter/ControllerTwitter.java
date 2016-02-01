@@ -76,10 +76,18 @@ public class ControllerTwitter extends HttpServlet {
                         Paging pagina = new Paging();
                         pagina.setCount(50);
                         ResponseList listado = twitter.getHomeTimeline(pagina);
-                        jsonResult =  gson.toJson(listado);
+                        jsonResult = gson.toJson(listado);
                     } catch (TwitterException ex) {
                         System.out.println(ex);
                     }
+                    break;
+                case "usersettings":
+                    try {                      
+                        jsonResult = gson.toJson(twitter.showUser(235606843));
+                    } catch (TwitterException ex) {
+                        System.out.println(ex);
+                    }
+
                     break;
                 default:
                     jsonResult = "{\"eror\":\"la operacion no existe\"}";

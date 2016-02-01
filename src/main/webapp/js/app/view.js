@@ -19,5 +19,21 @@ View.prototype.printTweets = function (data) {
         console.log("data error");
     }
 };
+View.prototype.printUserInfo = function (data) {
+
+    /*
+     "profileBackgroundColor":"022330",
+     "profileTextColor":"333333",
+     "profileLinkColor":"0084B4",
+     "profileSidebarFillColor":"C0DFEC",
+     "profileSidebarBorderColor":"A8C7F7",
+     */
+    var html = "<div class='info-user'>";
+    html += "<img src='" + data.profileImageUrl + "' />";
+    html += "<div class='user-tweets'><span>TWEETS</span>" + data.statusesCount + "</div>";
+    html += "<div class='user-friends'><span>SIGUIENDO</span>" + data.friendsCount + "</div>";
+    html += "<div class='user-followers'><span>SEGUIDORES</span>" + data.followersCount + "</div>";
+    return html += "</div>";
+};
 var oView = new View();
 
