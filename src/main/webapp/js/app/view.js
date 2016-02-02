@@ -1,10 +1,10 @@
 
-var View = function () {
+var View = function() {
 };
-View.prototype.getClassName = function () {
+View.prototype.getClassName = function() {
     return this.clase;
 };
-View.prototype.printTweets = function (data) {
+View.prototype.printTweets = function(data) {
     if (data != null) {
         for (var i = 0; i < data.length; i++) {
             var html = "<li class='tweet' id='" + data[i].id + "'>";
@@ -19,7 +19,7 @@ View.prototype.printTweets = function (data) {
         console.log("data error");
     }
 };
-View.prototype.printUserInfo = function (data) {
+View.prototype.printUserInfo = function(data) {
 
     /*
      "profileBackgroundColor":"022330",
@@ -29,10 +29,19 @@ View.prototype.printUserInfo = function (data) {
      "profileSidebarBorderColor":"A8C7F7",
      */
     var html = "<div class='info-user'>";
-    html += "<img src='" + data.profileImageUrl + "' />";
-    html += "<div class='user-tweets'><span>TWEETS</span>" + data.statusesCount + "</div>";
-    html += "<div class='user-friends'><span>SIGUIENDO</span>" + data.friendsCount + "</div>";
-    html += "<div class='user-followers'><span>SEGUIDORES</span>" + data.followersCount + "</div>";
+    if (data.profileBannerImageUrl != null) {
+        html += "<div class='head-info-user' style='background-image: url(" + data.profileBannerImageUrl + ")';></div>";
+    } else {
+        html += "<div class='head-info-user' style='background-color:#" + data.profileLinkColor + ";'></div>";
+    }
+    html += "<img class='img-avatar' src='" + data.profileImageUrl + "' />";
+    html += "<div class='user-name'>" + data.name + " <span>@" + data.screenName + "</span></div>";
+
+    html += "<div class='ProfileCardStats'><ul class='ProfileCardStats-statList'>";
+    html += "<li class='ProfileCardStats-stat'><a href='#'><span class='ProfileCardStats-statLabel'>TWEETS</span><span class='ProfileCardStats-statValue'>" + data.statusesCount + "</span></a></li>";
+    html += "<li class='ProfileCardStats-stat'><a href='#'><span class='ProfileCardStats-statLabel'>SIGUIENDO</span><span class='ProfileCardStats-statValue'>" + data.friendsCount + "</span></li>";
+    html += "<li class='ProfileCardStats-stat'><a href='#'><span class='ProfileCardStats-statLabel'>SEGUIDORES</span><span class='ProfileCardStats-statValue'>" + data.followersCount + "</span></li></ul></div>";
+
     return html += "</div>";
 };
 var oView = new View();
