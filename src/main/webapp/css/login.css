@@ -17,66 +17,54 @@ and open the template in the editor.
     bottom: 0;
     z-index: -1;
     display: block;
-    background-image: url('../img/login/fondo1.jpeg');
+    background-image: url('../img/login/city-people-street-sun.jpg');
 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;   
-    
-   /* -webkit-filter: blur(1px);
-    -moz-filter: blur(1px);
-    -o-filter: blur(1px);
-    -ms-filter: blur(1px);
-    filter: blur(1px);*/
+
+    /* -webkit-filter: blur(1px);
+     -moz-filter: blur(1px);
+     -o-filter: blur(1px);
+     -ms-filter: blur(1px);
+     filter: blur(1px);*/
 }
 .marco {
-    height: 400px;
-    width: 400px;
+    height: 550px;
+    width: 350px;
     margin: 0 auto;
-    margin-top: 8vw;
+    margin-top: 4vw;
 
-    background-color: rgba(255, 255, 255, 0.8);
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
+    background-color: #00aced;
 
-    border-style: solid;
-    border-width: 10px;
-    border-color: rgba(0, 0, 0, 0.4);
+}
+.marco .icon {
+    height: 40px;
+    margin-top: 50px;
+    margin-left: 43%;
 }
 
-h1 {
-    text-align: center;
-    font-size: 2.5em;
-    font-family: 'Playfair Display', serif;
-    color: rgba(255, 255, 255, 0.8);
-}
-h1 span {
-    color: rgba(0, 0, 0, 0.6);
-}
 p {
-    margin: 20px;
-    font-size: 1.2em;
+    margin-top: 20px;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
     text-align: center;
-    color: whitesmoke;
+    
+    margin-bottom: 250px;
 }
-#accion {
-    margin-top: 40px;
-    margin-left:50px;
-}
-#accion > p {
-    text-align: left;
+
+.marco .a-login{
+    text-decoration:none; 
+    margin-top: 50px;
+    margin-left: 15%;
+    text-align: center;
+    color: #00aced;
+    background-color: white;
+
     font-weight: bold;
-    color: rgba(0, 0, 0, 0.6) !important;
-}
-#accion > p > a {
-    text-align: center;
-    font-weight: notmal;
-    text-decoration:none;   
-    color: rgba(255, 255, 255, 0.8) !important;
-}
-.boton {
-    width: 300px;
-    opacity: 0.9;
+    padding: 10px 100px;
+    -webkit-border-radius: 300px;
+    -moz-border-radius: 300px;
+    border-radius: 300px;
 }

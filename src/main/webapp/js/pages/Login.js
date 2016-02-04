@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
     /*
      * Requiere el uso de Cookies.js -- important --
      */
@@ -13,10 +13,10 @@ $(document).ready(function () {
                 method: "GET",
                 dataType: "json",
                 url: 'http://127.0.0.1:39963/AmgTwitter/login?op=url'
-            }).done(function (data) {
-                var button = "<a href='" + data.url + "' target='popup' ";
-                button += "onClick=\"pop_up = window.open(this.href, this.target, 'width=350,height=420'); return false;\"> ";
-                button += "<img class='boton' src='./img/login/boton.png'></img></a>";
+            }).done(function(data) {
+                var button = "<a href='" + data.url + "' target='popup' class='a-login'";
+                button += "onClick=\"pop_up = window.open(this.href, this.target, 'width=350,height=420'); return false;\">Log in</a>";
+                // button += "<img class='boton' src='./img/login/boton.png'></img></a>";
                 $("#accion").html(button);
             });
         })();
@@ -47,7 +47,7 @@ $(document).ready(function () {
                 method: "GET",
                 dataType: "json",
                 url: 'http://127.0.0.1:39963/AmgTwitter/login?verifier=' + verifier
-            }).done(function (data) {
+            }).done(function(data) {
                 $("#resultado").html("Acces Token: " + data.token + "<br/>");
                 $("#resultado").append("Acces Secret: " + data.secret);
 
@@ -59,7 +59,6 @@ $(document).ready(function () {
         // Comprueba cada segundo el pop up
         var timer = setInterval(checkWindow, 1000);
     } else {
-        $("#accion").html("<p>Ya estas logueado: <a href='./html/home.html'>Ir a mi home</a></p>");
         window.location = "./html/home.html";
         // Muestra las cookies creadas
         $("#resultado").html("Acces Token Cookie: " + cookie1 + "<br/>");
