@@ -36,7 +36,7 @@ and open the template in the editor.
     margin: 0 auto;
     margin-top: 4vw;
 
-    background-color: #00aced;
+    background-color: #00AEF0;
 
 }
 .marco .icon {
@@ -45,13 +45,13 @@ and open the template in the editor.
     margin-left: 43%;
 }
 
-p {
+.marco p {
     margin-top: 20px;
     color: white;
     font-family: 'Open Sans', sans-serif;
     text-align: center;
     
-    margin-bottom: 250px;
+    margin-bottom: 100px;
 }
 
 .marco .a-login{
@@ -61,10 +61,28 @@ p {
     text-align: center;
     color: #00aced;
     background-color: white;
-
+    font-family: 'Open Sans', sans-serif;
     font-weight: bold;
     padding: 10px 100px;
     -webkit-border-radius: 300px;
     -moz-border-radius: 300px;
     border-radius: 300px;
+}
+h1 {
+    display: none;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    height: 85px;
+    margin-bottom: 100px;
+}
+.marco .spinner {
+    display: none;
+    margin-left: 30%;
+    height: 100px;
+    margin-bottom: 100px;
+}
+#resultado {
+    color: white;
+    text-align: center;
 }

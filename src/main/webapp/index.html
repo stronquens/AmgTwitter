@@ -11,12 +11,20 @@
         <div class="marco">
             <img class="icon" src="./img/login/Twitter-final.png"/>
             <p>Log in with Twitter</p>
-            <a href="http://127.0.0.1:39963/AmgTwitter/">127.0.0.1</a><br/>
-            <div id="accion"></div>
+            <h1>Welcome!</h1>
+            <img class="spinner" src="./img/login/spin-final.gif"/>
+            <br/>
+            <div id="accion">
+                <a href='' target='popup' class='a-login' onClick="pop_up = window.open(this.href, this.target, 'width=350,height=420');
+                        return false;">Log in</a>
+            </div>
         </div>
-        <p id="resultado"></p>
-    </body>
-    <script>document.cookie = null;</script>
+        <p id="resultado">
+            <a href="http://127.0.0.1:39963/AmgTwitter/">Go Timeline
+                <!-- <img class="spinner" src="./img/login/spin-final.gif"/> -->
+            </a>
+        </p>
+    </body>    
     <script src="./js/vendor/jquery-2.2.0.min.js"></script>
     <script type="text/javascript" src="./js/util/Cookies.js"></script>
     <!-- login.js requiere cookies.js para su funcionamimento -->
