@@ -30,13 +30,20 @@ View.prototype.printUserInfo = function(data) {
      */
     var html = "<div class='info-user'>";
     if (data.profileBannerImageUrl != null) {
+        // Profile 1
         html += "<div class='head-info-user' style='background-image: url(" + data.profileBannerImageUrl + ")';></div>";
+        // Profile 2
+        $('nav').css('background-image',"url(" + data.profileBannerImageUrl + ")");
     } else {
         html += "<div class='head-info-user' style='background-color:#" + data.profileLinkColor + ";'></div>";
     }
-    html += "<img class='img-avatar' src='" + data.profileImageUrl + "' />";
+    // Profile 1
+    html += "<img class='img-avatar' src='" + data.profileImageUrlHttps + "' />";
     html += "<div class='user-name'>" + data.name + " <span>@" + data.screenName + "</span></div>";
-
+    // Profile 2
+    $('.profile').html("<img class='avatar' src='" + data.profileImageUrl + "' />");
+    $('.profile').append("</br><div class='screenname'>@" + data.screenName + "</div></br><div class='name'>" + data.name + "</div>");
+    // Profile 1
     html += "<div class='ProfileCardStats'><ul class='ProfileCardStats-statList'>";
     html += "<li class='ProfileCardStats-stat'><a href='#'><span class='ProfileCardStats-statLabel'>TWEETS</span><span class='ProfileCardStats-statValue'>" + data.statusesCount + "</span></a></li>";
     html += "<li class='ProfileCardStats-stat'><a href='#'><span class='ProfileCardStats-statLabel'>SIGUIENDO</span><span class='ProfileCardStats-statValue'>" + data.friendsCount + "</span></li>";

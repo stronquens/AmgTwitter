@@ -11,15 +11,62 @@ body {
     background-color: #f5f8fa;
 }
 /*--------------------- NAV --------------------*/
-.nav {
+nav {
     position: relative;
     top:0;
     left:0;
     right: 0;
-    height: 70px;
-    border: solid 2px grey;
-    background-color: lightsteelblue;
+    height: 150px;
+    border: none;
+    background-color: #0084B4;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; 
+    -webkit-box-shadow: inset 4px -5px 58px 6px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 4px -5px 58px 6px rgba(0,0,0,0.75);
+    box-shadow: inset 4px -5px 58px 6px rgba(0,0,0,0.75);
 }
+.menu {height:40px;}
+.menu > img { width: 30px;position: absolute;left: 48%; top:20px;}
+.menu a {margin: 20px; float:right; font-size: 12px;}
+.menu a:first-child {float:left !important;}
+
+.profile {width:300px; margin-left: 80px; color:white;}
+.profile .avatar {float: left;width: 80px; border-radius: 50px;}
+.profile .screenname {float: left; margin-left: 20px; font-size: 12px;}
+.profile .name {float: left; margin-left: 20px; margin-top: 2px; font-size: 24px; font-weight: 400; color: white;}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'liga';
+}
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
 /*---------------------INFO USER---------------*/
 .align{
     display: inline-flex;
