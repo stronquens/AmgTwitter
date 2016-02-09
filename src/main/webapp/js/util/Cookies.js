@@ -3,7 +3,7 @@ var Cookies = function () {
     return {
         crearCookie: function (key, value) {
             expires = new Date();
-            expires.setTime(expires.getTime() + 86400000);
+            expires.setTime(expires.getTime() + 86400000); // Un dia
             cookie = key + "=" + value + ";expires=" + expires.toUTCString();
             //console.log("crearCookie: " + cookie);
             return document.cookie = cookie;

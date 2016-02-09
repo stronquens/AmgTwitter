@@ -70,9 +70,6 @@ $(document).ready(function() {
                 dataType: "json",
                 url: 'http://127.0.0.1:39963/AmgTwitter/login?verifier=' + verifier
             }).done(function(data) {
-                $("#resultado").html("Acces Token: " + data.token + "<br/>");
-                $("#resultado").append("Acces Secret: " + data.secret);
-
                 Cookies().crearCookie("amgTwitterToken", data.token);
                 Cookies().crearCookie("amgTwitterSecret", data.secret);
                 window.location = "./html/home.html";
@@ -81,10 +78,8 @@ $(document).ready(function() {
         // Comprueba cada segundo el pop up
         var timer = setInterval(checkWindow, 1000);
     } else {
+        // Si existen cookies redirige
         window.location = "./html/home.html";
-        // Muestra las cookies creadas
-        $("#resultado").html("Acces Token Cookie: " + cookie1 + "<br/>");
-        $("#resultado").append("Acces Secret Cookie: " + cookie2);
     }
 
 });
