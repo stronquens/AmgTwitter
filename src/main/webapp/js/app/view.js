@@ -38,10 +38,10 @@ View.prototype.printUserInfo = function(data) {
         html += "<div class='head-info-user' style='background-color:#" + data.profileLinkColor + ";'></div>";
     }
     // Profile 1
-    html += "<img class='img-avatar' src='" + data.profileImageUrlHttps + "' />";
+    html += "<img class='img-avatar' src='" + data.profileImageUrl.replace("normal","bigger") + "' />";
     html += "<div class='user-name'>" + data.name + " <span>@" + data.screenName + "</span></div>";
     // Profile 2
-    $('.profile').html("<img class='avatar' src='" + data.profileImageUrl + "' />");
+    $('.profile').html("<img class='avatar' src='" + data.profileImageUrl.replace("normal","400x400") + "' />");
     $('.profile').append("</br><div class='screenname'>@" + data.screenName + "</div></br><div class='name'>" + data.name + "</div>");
     // Profile 1
     html += "<div class='ProfileCardStats'><ul class='ProfileCardStats-statList'>";

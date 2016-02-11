@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import twitter4j.AccountSettings;
 import twitter4j.Paging;
 import twitter4j.ResponseList;
 import twitter4j.Twitter;
@@ -82,12 +83,18 @@ public class ControllerTwitter extends HttpServlet {
                     }
                     break;
                 case "usersettings":
-                    try {                      
-                        jsonResult = gson.toJson(twitter.showUser(235606843));
+                    try {
+                        jsonResult = gson.toJson(twitter.showUser(twitter.getId()));
                     } catch (TwitterException ex) {
                         System.out.println(ex);
                     }
-
+                    break;
+                case "pruebas":
+                    try {
+                      jsonResult = gson.toJson(twitter.showUser(twitter.getId()));
+                    } catch (TwitterException ex) {
+                        System.out.println(ex);
+                    }
                     break;
                 default:
                     jsonResult = "{\"eror\":\"la operacion no existe\"}";

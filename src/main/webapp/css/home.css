@@ -32,10 +32,10 @@ nav {
 .menu a {margin: 20px; float:right; font-size: 12px;}
 .menu a:first-child {float:left !important;}
 
-.profile {width:300px; margin-left: 80px; color:white;}
-.profile .avatar {float: left;width: 80px; border-radius: 50px;}
-.profile .screenname {float: left; margin-left: 20px; font-size: 12px;}
-.profile .name {float: left; margin-left: 20px; margin-top: 2px; font-size: 24px; font-weight: 400; color: white;}
+.profile {margin-left: 10vw; width:400px; color:white;}
+.profile .avatar {float: left;width: 150px; border-radius: 100px; border: solid 5px rgba(255, 255, 255, 0.3);}
+.profile .screenname {float: left; margin-top: 40px; margin-left: 20px; font-size: 16px;}
+.profile .name {float: left; margin-left: 20px; margin-top: 2px; font-size: 32px; font-weight: 400; color: white;}
 
 .material-icons {
     font-family: 'Material Icons';
