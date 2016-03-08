@@ -6,8 +6,9 @@ View.prototype.getClassName = function() {
 };
 View.prototype.printTweets = function(data) {
     if (data != null) {
+        var html = "";
         for (var i = 0; i < data.length; i++) {
-            var html = "<li class='tweet' id='" + data[i].id + "'>";
+            html = "<li class='tweet' id='" + data[i].id + "'>";
             html += "<a class='account-group'><img class='avatar' src='" + data[i].user.profileImageUrl + "'/>"
             html += "<div class='tweet-user'>" + data[i].user.name + " @" + data[i].user.screenName + "</a></div>";
             html += "<div class='time'>" + data[i].createdAt + "</div>";
@@ -15,12 +16,15 @@ View.prototype.printTweets = function(data) {
             html += "</li>";
             $(".stream-items").append(html);
         }
+    // Mostramos el tiempo que ha tardado desde la llamada    
+    var d2 = new Date();
+    var fin = d2.getTime();
+    console.log("Tiempo mostrar tweets home timeline: "+(fin-ini));
     } else {
         console.log("data error");
     }
 };
 View.prototype.printUserInfo = function(data) {
-
     /*
      "profileBackgroundColor":"022330",
      "profileTextColor":"333333",
@@ -49,7 +53,8 @@ View.prototype.printUserInfo = function(data) {
     html += "<li class='ProfileCardStats-stat'><a href='#'><span class='ProfileCardStats-statLabel'>SIGUIENDO</span><span class='ProfileCardStats-statValue'>" + data.friendsCount + "</span></li>";
     html += "<li class='ProfileCardStats-stat'><a href='#'><span class='ProfileCardStats-statLabel'>SEGUIDORES</span><span class='ProfileCardStats-statValue'>" + data.followersCount + "</span></li></ul></div>";
 
-    return html += "</div>";
+    html += "</div>";
+    $(".col1").append(html);
 };
 var oView = new View();
 

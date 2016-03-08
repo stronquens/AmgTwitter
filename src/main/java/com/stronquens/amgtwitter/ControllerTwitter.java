@@ -40,15 +40,18 @@ public class ControllerTwitter extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            // Obtenemos parametros de la peticion
             String op = request.getParameter("op");
             String accesToken = request.getParameter("token");
             String accesTokenSecret = request.getParameter("secret");
-
+            
+            // Inicializamos variables
             String jsonResult = "";
             Twitter twitter = null;
             ConfigurationBuilder configBuilder = new ConfigurationBuilder();
             Gson gson = new GsonBuilder().setDateFormat("dd/MM/yyyy HH:mm:ss").create();
-            // Se crea la instancia de twitter segun los parametros
+            
+            // Se crea la instancia de twitter segun los parametros de ususario
             if (!"".equalsIgnoreCase(accesToken) && !"".equalsIgnoreCase(accesTokenSecret)) {
                 try {
                     configBuilder.setDebugEnabled(true)
@@ -70,6 +73,7 @@ public class ControllerTwitter extends HttpServlet {
                     System.out.println(e);
                 }
             }
+            
             // Se realizan las diferentes operaciones
             switch (op) {
                 case "timeline":

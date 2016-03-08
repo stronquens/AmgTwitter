@@ -8,6 +8,7 @@ and open the template in the editor.
     Author     : Armando
 */
 body {
+    overflow-x: hidden;
     background-color: #f5f8fa;
 }
 /*--------------------- NAV --------------------*/
@@ -36,6 +37,13 @@ nav {
 .profile .avatar {float: left;width: 150px; border-radius: 100px; border: solid 5px rgba(255, 255, 255, 0.3);}
 .profile .screenname {float: left; margin-top: 40px; margin-left: 20px; font-size: 16px;}
 .profile .name {float: left; margin-left: 20px; margin-top: 2px; font-size: 32px; font-weight: 400; color: white;}
+
+.submenu {position: absolute;bottom: 0px;left:0px;width:100%;}
+.submenu .sm1 {width:430px;height:40px;float:right;margin-right: 15%;}
+.submenu .sm1 a {display: inline-flex;text-decoration:none;color:white;
+                 height: 35px;padding-right: 20px;padding-left: 20px;}
+.submenu .sm1 a span {padding-top: 5px; margin-left: 5px;}
+.submenu .sm1 .selected {border-bottom: solid 5px #47C0F5;}
 
 .material-icons {
     font-family: 'Material Icons';
