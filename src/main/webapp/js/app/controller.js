@@ -6,6 +6,7 @@ var Controller = function () {
     this.secret = Cookies().leerCookie("amgTwitterSecret");
 };
 Controller.prototype.init = function () { 
+    fTwitterRoutes();
     // Inicia el tiempo de cuenta para ver lo que tarda
     d1 = new Date();
     ini = d1.getTime();

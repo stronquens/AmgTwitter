@@ -24,7 +24,7 @@
                 <div class="sm1">
                     <a class="selected" href="#"><i class="material-icons md-light">home</i> <span>Home</span></a>
                     <a href="#"><i class="material-icons md-light">notifications</i> <span>Notifications</span></a>
-                    <a href="#"><i class="material-icons md-light">#</i><span>Discover</span></a>
+                    <a href="#hastag"><i class="material-icons md-light">#</i><span>Discover</span></a>
                 </div>
             </div>
         </nav>
@@ -37,16 +37,18 @@
     </body>
 
     <script src="../js/vendor/jquery-2.2.0.min.js"></script>
+    <script src="../js/vendor/path.min.js"></script>
     <script src="../js/util/Cookies.js"></script>
     <script src="../js/util/ajax.js"></script>
 
     <script src="../js/app/view.js"></script>
     <script src="../js/app/model.js"></script>
     <script src="../js/app/controller.js"></script>
-    <script src="../js/app/events.js"></script>
+    <script src="../js/app/routes.js"></script>
     <script>
-        //var Path = window.location.host+window.location.pathname;     
-        pageEvents();
-        //Path.listen();
+        //var path = window.location.host+window.location.pathname; 
+        Path.listen();
+        oController.init();
+        
     </script>   
 </html>
