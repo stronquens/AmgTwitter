@@ -79,7 +79,7 @@ public class ControllerTwitter extends HttpServlet {
                 case "timeline":
                     try {
                         Paging pagina = new Paging();
-                        pagina.setCount(50);
+                        pagina.setCount(25);
                         ResponseList listado = twitter.getHomeTimeline(pagina);
                         jsonResult = gson.toJson(listado);
                     } catch (TwitterException ex) {

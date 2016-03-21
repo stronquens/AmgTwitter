@@ -72,14 +72,14 @@ $(document).ready(function() {
             }).done(function(data) {
                 Cookies().crearCookie("amgTwitterToken", data.token);
                 Cookies().crearCookie("amgTwitterSecret", data.secret);
-                window.location = "./html/home.html";
+                window.location = "./app.html";
             });
         }
         // Comprueba cada segundo el pop up
         var timer = setInterval(checkWindow, 1000);
     } else {
         // Si existen cookies redirige
-        window.location = "./html/home.html";
+        window.location = "./app.html";
     }
 
 });

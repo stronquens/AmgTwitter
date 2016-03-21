@@ -6,14 +6,17 @@ var Controller = function () {
     this.secret = Cookies().leerCookie("amgTwitterSecret");
 };
 Controller.prototype.init = function () { 
-    fTwitterRoutes();
     // Inicia el tiempo de cuenta para ver lo que tarda
     d1 = new Date();
     ini = d1.getTime();
-    
-    oModel.getAjaxUserInfo();
-    oModel.getAjaxTimeline();
-    //$(".col1").append(oView.printUserInfo(userInfo));
-    //oView.printTweets(timeline);
+    oModel.getAjaxUserInfo(function(data){
+        oView.printUserInfo(data);
+    });
+    oModel.getAjaxTimeline(function(data){
+        oView.printTweetsMoustache(data);
+    });
+};
+
+Controller.prototype.pruebas = function () { 
 };
 var oController = new Controller();
