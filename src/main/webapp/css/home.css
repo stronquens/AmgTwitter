@@ -28,7 +28,9 @@ nav {
     -moz-box-shadow: inset 4px -5px 58px 6px rgba(0,0,0,0.75);
     box-shadow: inset 4px -5px 58px 6px rgba(0,0,0,0.75);
 }
-.menu {height:40px;}
+.menu-button {z-index: 3; cursor:pointer;}
+.menu {position: fixed; z-index: 1;height:60px;width:100%;}
+.menu-scroll {background-color: #676767;}
 .menu > img { width: 30px;position: absolute;left: 48%; top:20px;}
 .menu a {margin: 20px; float:right; font-size: 12px;}
 .menu a:first-child {float:left !important;}
@@ -80,6 +82,46 @@ nav {
 
 .material-icons.md-light { color: rgba(255, 255, 255, 1); }
 .material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+/*------------------ Desplegable -------------*/
+.desplegable {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top:0px;
+    left: 0px;
+    width: 350px;
+    height: 100%;
+    background-color: white;
+
+    -webkit-box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.75);
+}
+.desp-header {
+    background-color: #0085B7;
+    border-bottom: solid 1px grey;
+}
+.desplegable i {
+    margin: 20px;
+    cursor:pointer;
+    color: grey;
+}
+.desplegable .icon {
+    width: 75px;
+    margin-bottom: 30px;
+    margin-left: 40%;
+}
+.desplegable ul {
+    margin: 50px 40px;
+}
+.desplegable li {
+    height: 50px;
+}
+.desplegable a {
+    text-decoration: none;
+    font-size: 1.2em;
+    color: black;
+}
 /*---------------------INFO USER---------------*/
 .align{
     display: inline-flex;

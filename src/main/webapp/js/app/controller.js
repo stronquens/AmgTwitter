@@ -9,12 +9,15 @@ Controller.prototype.init = function () {
     // Inicia el tiempo de cuenta para ver lo que tarda
     d1 = new Date();
     ini = d1.getTime();
+    
     oModel.getAjaxUserInfo(function(data){
         oView.printUserInfo(data);
     });
     oModel.getAjaxTimeline(function(data){
         oView.printTweetsMoustache(data);
     });
+    
+    oView.bindInitEvents();
 };
 
 Controller.prototype.pruebas = function () { 

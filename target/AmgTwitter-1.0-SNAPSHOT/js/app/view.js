@@ -14,50 +14,67 @@ View.prototype.printTweetsManual = function(data) {
             html += "<div class='time'>" + data[i].createdAt + "</div>";
             html += "<div class='tweet-text'>" + data[i].text + "</div>";
             html += "</li>";
-            
+
         }
         html += "</ol></div></div>";
         $("main").append(html);
-    // Mostramos el tiempo que ha tardado desde la llamada    
-    var d2 = new Date();
-    var fin = d2.getTime();
-    console.log("Tiempo mostrar tweets home timeline: "+(fin-ini));
+        // Mostramos el tiempo que ha tardado desde la llamada    
+        var d2 = new Date();
+        var fin = d2.getTime();
+        console.log("Tiempo mostrar tweets home timeline: " + (fin - ini));
     } else {
         console.log("error: generando vista tweets");
     }
 };
 View.prototype.printTweetsMoustache = function(data) {
-    data = {"tweets":data};
+    data = {"tweets": data};
     // Lee el archivo de template, genera la vista y la inserta
-    $.get( "../js/views/tweets-template.html", function( source ) {
+    $.get("../js/views/tweets-template.html", function(source) {
         var template = Handlebars.compile(source);
         $("main").html(template(data));
     });
     // Mostramos el tiempo que ha tardado desde la llamada    
     var d2 = new Date();
     var fin = d2.getTime();
-    console.log("Tiempo mostrar tweets home timeline: "+(fin-ini));
+    console.log("Tiempo mostrar tweets home timeline: " + (fin - ini));
 };
 View.prototype.printUserInfo = function(data) {
-    /*
-     "profileBackgroundColor":"022330",
-     "profileTextColor":"333333",
-     "profileLinkColor":"0084B4",
-     "profileSidebarFillColor":"C0DFEC",
-     "profileSidebarBorderColor":"A8C7F7",
-     */
-    $('nav').css('background-image',"url(" + data.profileBannerImageUrl + ")");
-    $('.profile').html("<img class='avatar' src='" + data.profileImageUrl.replace("normal","400x400") + "' />");
-    $('.profile').append("</br><div class='screenname'>@" + data.screenName 
+    $('nav').css('background-image', "url(" + data.profileBannerImageUrl + ")");
+    //$('.desp-header').css('background-image', "url(" + data.profileBannerImageUrl + ")");
+    $('.profile').html("<img class='avatar' src='" + data.profileImageUrl.replace("normal", "400x400") + "' />");
+    $('.profile').append("</br><div class='screenname'>@" + data.screenName
             + "</div></br><div class='name'>" + data.name + "</div>");
-    
+
     // tweets statusesCount; Siguiendo friendsCount; seguidores followersCount
     $('.submenu').prepend("<div class='sm2'>\n\
-    <a href='#' class='tweetsCount'><span>TWEETS</span><br/>"+data.statusesCount+"</a>\n\
-    <a href='#' class='friendsCount'><span>SIGUIENDO</span><br/>"+data.friendsCount+"</a>\n\
-    <a href='#' class='followersCount'><span>SEGUIDORES</span><br/>"+data.followersCount+"</a></div>");
-
-
+    <a href='#' class='tweetsCount'><span>TWEETS</span><br/>" + data.statusesCount + "</a>\n\
+    <a href='#' class='friendsCount'><span>SIGUIENDO</span><br/>" + data.friendsCount + "</a>\n\
+    <a href='#' class='followersCount'><span>SEGUIDORES</span><br/>" + data.followersCount + "</a></div>");
+};
+View.prototype.bindInitEvents = function() {
+    // Nav scroll change
+    var mainbottom = $('nav').offset().top + $('nav').height() - $('.menu').height();
+    $(window).on('scroll', function() {
+        var stop = Math.round($(window).scrollTop());
+        if (stop > mainbottom) {
+            $('.menu').addClass('menu-scroll');
+        } else {
+            $('.menu').removeClass('menu-scroll');
+        }
+    });
+    // Button Menu
+    var menuButton = $('.menu-button');
+    menuButton.click(function() {
+        $({deg: 0}).animate({deg: 180}, {
+            duration: 400,
+            step: function(now) {
+                menuButton.css({
+                    transform: 'rotate(' + now + 'deg)'
+                });
+            }
+        });
+        $('.desplegable').toggle(500);
+    })
 };
 var oView = new View();
 
