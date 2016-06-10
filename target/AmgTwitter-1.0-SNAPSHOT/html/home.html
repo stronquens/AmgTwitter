@@ -24,9 +24,9 @@
             <div class="profile"></div>
             <div class="submenu">
                 <div class="sm1">
-                    <a class="selected" href="#home"><i class="material-icons md-light">home</i> <span>Home</span></a>
-                    <a href="#notifications"><i class="material-icons md-light">notifications</i> <span>Notifications</span></a>
-                    <a href="#hastag"><i class="material-icons md-light">#</i><span>Discover</span></a>
+                    <a class="selected" href="#home"><i class="material-icons md-light">home</i> <span>Inicio</span></a>
+                    <a href="#notifications"><i class="material-icons md-light">notifications</i> <span>Notificaciones</span></a>
+                    <a href="#hastag"><i class="material-icons md-light">#</i><span>Descubre</span></a>
                 </div>
             </div>
         </nav>
@@ -56,16 +56,16 @@
 <script src="../js/util/ajax.js" type="text/javascript"></script>
 
 <!-- App -->
-<script src="../js/app/view.js" type="text/javascript"></script>
-<script src="../js/app/model.js" type="text/javascript"></script>
-<script src="../js/app/controller.js" type="text/javascript"></script>
-<script src="../js/app/routes.js" type="text/javascript"></script>
+<script src="../js/app/sections/sectionsView.js" type="text/javascript"></script>
+<script src="../js/app/sections/sectionsModel.js" type="text/javascript"></script>
+<script src="../js/app/sections/sectionsController.js" type="text/javascript"></script>
+<script src="../js/app/sections/sectionsRoutes.js" type="text/javascript"></script>
 
 <script>
     //var path = window.location.host+window.location.pathname; 
-    oController.init();
+    oSectionsController.init();
     // Activamos el enrutado
     Path.listen();
-    fTwitterRoutes();
+    fSectionRoutes();
 </script>   
 </html>

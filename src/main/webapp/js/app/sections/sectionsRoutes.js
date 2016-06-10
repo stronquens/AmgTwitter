@@ -1,21 +1,16 @@
 
-function fTwitterRoutes() {
+function fSectionRoutes() {
     
     Path.map("#home").to(function () {
-        d1 = new Date();
-        ini = d1.getTime();
         $("main").html("");
-        oModel.getAjaxTimeline(function(data){
-            oView.printTweetsMoustache(data);
+        oSectionsModel.getAjaxTimeline(function(data){
+            oSectionsView.printTweets(data);
         });
     });   
     
     Path.map("#notifications").to(function () {
-        d1 = new Date();
-        ini = d1.getTime();
         $("main").html("");
-        
-        oController.pruebas();
+        oSectionsController.pruebas();
     });
     
     Path.map("#hastag").to(function () {
