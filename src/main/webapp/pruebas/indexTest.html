@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Pruebas</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width"/>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <h1>Test Socket Connection</h1>
+        <form onSubmit="return false">
+            <label>Token: </label>
+            <input id="token" type="text"/>
+            <label>Secret </label>
+            <input id="secret" type="text"/>
+            <input id="submit" type="submit" />
+        </form>
+        <div id="content"></div>
+    </body>    
+    <script type="text/javascript">
+        var socket = null;
+        $('#submit').click(function() {
+            // Capturar formulario y iniciar el socket
+            var token = $('#token').val();
+            var secret = $('#secret').val();
+            createConection(token, secret);
+
+        });
+
+        function createConection(token, secret) {
+            if (socket === null) {
+                socket = new WebSocket("ws://" + window.location.host + "/AmgTwitter/twitter/" + token + "/" + secret);
+                //socket = new WebSocket("ws://" + window.location.host + ":8000/WebsocketQuiz/rooms");
+                socket.onmessage = onMessage;
+            }
+        }
+
+        function onMessage(event) {
+            var json = JSON.parse(event.data);
+            $('#content').append(JSON.stringify(json));
+        }
+    </script>
+</html>

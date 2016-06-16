@@ -1,2 +1,4 @@
 com/stronquens/amgtwitter/ControllerOAuth.class
+com/stronquens/amgtwitter/SocketTwitter.class
+com/stronquens/amgtwitter/SocketTwitter$1.class
 com/stronquens/amgtwitter/ControllerTwitter.class
